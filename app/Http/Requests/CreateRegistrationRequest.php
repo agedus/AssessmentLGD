@@ -24,7 +24,7 @@ class CreateRegistrationRequest extends FormRequest
             'house_number_extension' => ['nullable'],
             'email_address' => ['required', 'email:rfc', 'unique:registrations,email_address'],
             'phone_number' => ['required', 'phone:NL,DE'],
-            'password' => ['required']
+            'password' => ['required', 'min:9', 'regex:/^.*(?=.{3,})(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[\d\x])(?=.*[!$#%]).*$/']
         ];
     }
 }

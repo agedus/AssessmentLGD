@@ -96,7 +96,7 @@
             <input type="password" class="form-control" id="password" value="{{ old('password') }}" aria-describedby="password" placeholder="Password"
                    name="password">
             @error('password')
-            <small>{{ $message }}</small>
+            <small>Password must be at least 9 characters long with a special character, uppercase letter, lowercase letter and a number</small>
             @enderror
         </div>
 
