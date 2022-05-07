@@ -4,6 +4,7 @@ namespace App\Http\Requests;
 
 use App\Rules\InitialRule;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rules\Password;
 
 class CreateRegistrationRequest extends FormRequest
 {
@@ -24,7 +25,7 @@ class CreateRegistrationRequest extends FormRequest
             'house_number_extension' => ['nullable'],
             'email_address' => ['required', 'email:rfc', 'unique:registrations,email_address'],
             'phone_number' => ['required', 'phone:NL,DE'],
-            'password' => ['required', 'min:9', 'regex:/^.*(?=.{3,})(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[\d\x])(?=.*[!$#%]).*$/']
+            'password' => ['required', Password::min(9)->letters()->mixedCase()->numbers()->symbols()]
         ];
     }
 }

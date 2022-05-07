@@ -107,10 +107,13 @@
         </div>
 
         <div class="col">
-            <button class="btn btn-primary" type="submit">Save</button>
+            <button class="btn btn-primary mr-5" type="submit">Save</button>
         </div>
-
     </form>
+
+    <a href="{{ route('registration.view') }}">
+        <button class="btn btn-primary">View registrations</button>
+    </a>
 
 </div>
 

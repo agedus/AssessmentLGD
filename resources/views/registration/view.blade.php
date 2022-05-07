@@ -16,60 +16,69 @@
 
 <div class="container m-5">
 
-    <div class="row">
-        <label class="col" for="first_name">First name:</label>
-        <span class="col" id="first_name">{{ $registration->first_name }}</span>
-    </div>
+    @foreach($registrations as $registration)
+        <div class="card">
+            <div class="card-body">
 
-    <div class="row">
-        <label class="col" for="last_name">Surname:</label>
-        <span class="col" id="last_name">{{ $registration->last_name }}</span>
-    </div>
 
-    <div class="row">
-        <label class="col" for="initials">Initials:</label>
-        <span class="col" id="initials">{{ $registration->initials }}</span>
-    </div>
+                <div class="row">
+                    <label class="col" for="first_name">First name:</label>
+                    <span class="col" id="first_name">{{ $registration->first_name }}</span>
+                </div>
 
-    <div class="row">
-        <label class="col" for="postal_code">Postal code:</label>
-        <span class="col" id="postal_code">{{ $registration->postal_code }}</span>
-    </div>
+                <div class="row">
+                    <label class="col" for="last_name">Surname:</label>
+                    <span class="col" id="last_name">{{ $registration->last_name }}</span>
+                </div>
 
-    <div class="row">
-        <label class="col" for="house_number">House number:</label>
-        <span class="col" id="house_number">{{ $registration->house_number }}</span>
-    </div>
+                <div class="row">
+                    <label class="col" for="initials">Initials:</label>
+                    <span class="col" id="initials">{{ $registration->initials }}</span>
+                </div>
 
-    <div class="row">
-        <label class="col" for="house_number_extension">House number extension:</label>
-        <span class="col" id="house_number_extension">{{ $registration->house_number_extension }}</span>
-    </div>
+                <div class="row">
+                    <label class="col" for="postal_code">Postal code:</label>
+                    <span class="col" id="postal_code">{{ $registration->postal_code }}</span>
+                </div>
 
-    <div class="row">
-        <label class="col" for="street_name">Street:</label>
-        <span class="col" id="street_name">{{ $registration->street_name }}</span>
-    </div>
+                <div class="row">
+                    <label class="col" for="house_number">House number:</label>
+                    <span class="col" id="house_number">{{ $registration->house_number }}</span>
+                </div>
 
-    <div class="row">
-        <label class="col" for="city">City:</label>
-        <span class="col" id="city">{{ $registration->city }}</span>
-    </div>
+                <div class="row">
+                    <label class="col" for="house_number_extension">House number extension:</label>
+                    <span class="col" id="house_number_extension">{{ $registration->house_number_extension }}</span>
+                </div>
 
-    <div class="row">
-        <label class="col" for="province">Province:</label>
-        <span class="col" id="province">{{ $registration->province }}</span>
-    </div>
+                <div class="row">
+                    <label class="col" for="street_name">Street:</label>
+                    <span class="col" id="street_name">{{ $registration->street_name }}</span>
+                </div>
 
-    <div class="row">
-        <label class="col" for="email_address">Email address:</label>
-        <span class="col" id="email_address">{{ $registration->email_address }}</span>
-    </div>
+                <div class="row">
+                    <label class="col" for="city">City:</label>
+                    <span class="col" id="city">{{ $registration->city }}</span>
+                </div>
 
-    <div class="row">
-        <label class="col" for="phone_number">Phone number:</label>
-        <span class="col" id="phone_number">{{ $registration->phone_number }}</span>
-    </div>
+                <div class="row">
+                    <label class="col" for="province">Province:</label>
+                    <span class="col" id="province">{{ $registration->province }}</span>
+                </div>
+
+                <div class="row">
+                    <label class="col" for="email_address">Email address:</label>
+                    <span class="col" id="email_address">{{ $registration->email_address }}</span>
+                </div>
+
+                <div class="row">
+                    <label class="col" for="phone_number">Phone number:</label>
+                    <span class="col" id="phone_number">{{ $registration->phone_number }}</span>
+                </div>
+
+            </div>
+        </div>
+    @endforeach
 
 </div>
 

@@ -26,9 +26,7 @@ Route::prefix('registration')->group(function () {
 
     Route::get('create', [RegistrationController::class, 'create'])->name('registration.create');
     Route::post('create', [RegistrationController::class, 'store'])->name('registration.create');
-    Route::prefix('{registration}')->group(function () {
-        Route::get('view', [RegistrationController::class, 'view'])->name('registration.view');
-    });
+    Route::get('view', [RegistrationController::class, 'view'])->name('registration.view');
 
 });
 

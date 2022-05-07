@@ -54,15 +54,17 @@ class RegistrationController extends Controller
         $registration->password = Hash::make($data->password);
         $registration->save();
 
-        return redirect()->route('registration.view', $registration->id);
+        return redirect()->route('registration.view');
     }
 
     /**
      * @param Registration $registration
      * @return Factory|View|Application
      */
-    public function view(Registration $registration): Factory|View|Application
+    public function view(): Factory|View|Application
     {
-        return view('registration.view', ['registration' => $registration]);
+        $data = Registration::all();
+
+        return view('registration.view', ['registrations' => $data]);
     }
 }
