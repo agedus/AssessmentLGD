@@ -10,6 +10,10 @@ use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\ValidationException;
+use Spikkl\Api\Exceptions\AccessDeniedException;
+use Spikkl\Api\Exceptions\AccessRestrictedException;
+use Spikkl\Api\Exceptions\InvalidApiKeyException;
+use Spikkl\Api\Exceptions\QuotaReachedException;
 use Spikkl\Api\Exceptions\ZeroResultsException;
 use Spikkl\Laravel\Facades\Spikkl;
 
@@ -33,10 +37,13 @@ class RegistrationController extends Controller
         $data = (object) $request->validated();
 
         try {
-            $address = Spikkl::api()->lookup('nld', $data->postal_code, $data->house_number, null);
+            $address = Spikkl::api()->lookup('nld', $data->postal_code, $data->house_number, $data->house_number_extension);
         }
         catch (ZeroResultsException|\Spikkl\Api\Exceptions\ValidationException $exception) {
             throw ValidationException::withMessages(['address_error' => 'Can not get a address with the postal code and house number combination.']);
+        }
+        catch (AccessRestrictedException|AccessDeniedException|QuotaReachedException|InvalidApiKeyException $exception) {
+            throw ValidationException::withMessages(['address_error' => 'Error connecting to the address API']);
         }
 
         $registration = new Registration();
